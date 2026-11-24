@@ -267,7 +267,7 @@ Sincerely,
 [Founder / Project Lead — AgriVenture-OS]
 [Email Address]
 [Phone / WhatsApp]
-[LinkedIn or Website]  
+[LinkedIn or Website]
 [City, State]
 
 ---
