@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="AgriVenture-OS is an offline-first, trilingual operations platform concept for agro-food ventures, biofloc and hydroponic labs, and cloud kitchens.">
+  <title>AgriVenture-OS — Grow with clarity</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --forest: #173f35;
+      --forest-dark: #102f28;
+      --leaf: #397b55;
+      --lime: #d7ed9b;
+      --cream: #f7f6ef;
+      --paper: #fffefa;
+      --ink: #1d2923;
+      --muted: #647169;
+      --line: #e5e8dc;
+      --shadow: 0 18px 50px rgba(30, 55, 39, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--forest); font-weight: 800; letter-spacing: -.03em; text-decoration: none; }
+    .brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px; background: var(--forest); color: var(--lime); font-size: 20px; }
+    .nav-links { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-cta { padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; color: var(--forest) !important; font-weight: 700; }
+    .hero { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 52px; min-height: 520px; padding: 64px clamp(28px, 6vw, 76px); border-radius: 28px; background: var(--forest); color: white; box-shadow: var(--shadow); }
+    .hero::after { position: absolute; right: -120px; bottom: -270px; width: 530px; height: 530px; border: 1px solid rgba(215,237,155,.15); border-radius: 50%; content: ""; box-shadow: 0 0 0 50px rgba(215,237,155,.025), 0 0 0 100px rgba(215,237,155,.025); pointer-events: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--lime); font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); content: ""; }
+    h1 { max-width: 650px; margin: 20px 0 18px; font-size: clamp(42px, 6vw, 68px); line-height: 1.04; letter-spacing: -.055em; }
+    .hero-copy { max-width: 570px; color: #d7e5d9; font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 19px; border: 1px solid transparent; border-radius: 999px; font-size: 14px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--lime); color: var(--forest-dark); }
+    .button-secondary { border-color: rgba(255,255,255,.32); color: white; }
+    .hero-art { position: relative; z-index: 1; display: grid; min-height: 310px; place-items: center; }
+    .orbit { position: absolute; width: min(100%, 340px); aspect-ratio: 1; border: 1px solid rgba(215,237,155,.25); border-radius: 50%; }
+    .orbit::before, .orbit::after { position: absolute; inset: 12%; border: 1px solid rgba(215,237,155,.17); border-radius: 50%; content: ""; }
+    .orbit::after { inset: 25%; }
+    .plant-card { position: relative; display: grid; width: 220px; min-height: 245px; align-content: center; justify-items: center; gap: 13px; border: 1px solid rgba(255,255,255,.23); border-radius: 24px; background: linear-gradient(150deg, rgba(255,255,255,.14), rgba(255,255,255,.04)); box-shadow: 0 25px 65px rgba(0,0,0,.2); backdrop-filter: blur(8px); }
+    .plant-icon { font-size: 78px; line-height: 1; filter: drop-shadow(0 10px 20px rgba(0,0,0,.18)); }
+    .plant-label { color: #e2edda; font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+    .mini-chip { position: absolute; padding: 9px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: #245c47; color: white; font-size: 12px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+    .chip-one { top: 26px; right: 2px; }.chip-two { bottom: 36px; left: 0; }
+    .proof { display: grid; grid-template-columns: repeat(3, 1fr); margin: 26px 0 0; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .proof-item { padding: 4px 24px; border-right: 1px solid var(--line); }
+    .proof-item:first-child { padding-left: 0; }.proof-item:last-child { border-right: 0; }
+    .proof strong { display: block; color: var(--forest); font-size: 16px; }
+    .proof span { color: var(--muted); font-size: 13px; }
+    section { padding: 82px 0 0; }
+    .section-heading { max-width: 650px; margin-bottom: 30px; }
+    .section-kicker { color: var(--leaf); font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    h2 { margin: 9px 0 10px; color: var(--forest); font-size: clamp(30px, 4vw, 42px); line-height: 1.12; letter-spacing: -.04em; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { min-height: 205px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
+    .card-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: #edf3df; font-size: 21px; }
+    .card h3 { margin: 17px 0 7px; color: var(--forest); font-size: 17px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .band { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 38px; margin-top: 82px; padding: 38px; border-radius: 22px; background: #e9efdc; }
+    .band h2 { margin-top: 0; font-size: 32px; }
+    .band p { color: var(--muted); }
+    .language-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .language { display: inline-flex; align-items: center; gap: 9px; padding: 12px 16px; border: 1px solid #d6e0c8; border-radius: 13px; background: rgba(255,255,255,.65); color: var(--forest); font-weight: 750; }
+    .language span { color: var(--muted); font-size: 12px; font-weight: 600; }
+    .cta { margin: 82px 0; padding: 44px; border-radius: 22px; background: var(--forest-dark); color: white; text-align: center; }
+    .cta h2 { color: white; }.cta p { max-width: 580px; margin: 0 auto 22px; color: #c9d9cc; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer a { color: var(--forest); font-weight: 700; text-decoration: none; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 28px, 620px); }.nav { padding: 16px 0; }.nav-links { gap: 14px; }.nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 16px; min-height: 0; padding: 44px 25px 24px; }.hero-art { min-height: 270px; }.hero-art .orbit { width: 270px; }
+      .proof { grid-template-columns: 1fr; gap: 12px; }.proof-item, .proof-item:first-child { padding: 4px 0; border-right: 0; }
+      section { padding-top: 62px; }.cards { grid-template-columns: 1fr; }.card { min-height: auto; }.band { grid-template-columns: 1fr; margin-top: 62px; padding: 26px; }.cta { margin: 62px 0; padding: 34px 22px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#top" aria-label="AgriVenture-OS home"><span class="brand-mark" aria-hidden="true">✳</span>AgriVenture-OS</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#platform">Platform</a>
+      <a href="#languages">Languages</a>
+      <a class="nav-cta" href="https://github.com/bhuyanamitnishanka-debug/AgriVenture-OS">View on GitHub ↗</a>
+    </nav>
+  </header>
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">A better way to grow</span>
+        <h1 id="hero-title">Good food starts with a good system.</h1>
+        <p class="hero-copy">One practical workspace for the people growing, making, and serving food. Built for real-world operations—even when the internet isn’t there.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/bhuyanamitnishanka-debug/AgriVenture-OS">Explore the project <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="button button-secondary" href="#platform">Discover the platform</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration representing connected agriculture and food operations" role="img">
+        <div class="orbit"></div>
+        <div class="plant-card"><span class="plant-icon" aria-hidden="true">🌱</span><span class="plant-label">GROW · MAKE · SERVE</span></div>
+        <span class="mini-chip chip-one">◉ Offline-ready</span>
+        <span class="mini-chip chip-two">✦ One connected view</span>
+      </div>
+    </section>
+    <div class="proof" aria-label="Platform principles">
+      <div class="proof-item"><strong>Built for the field</strong><span>Designed with low-connectivity work in mind</span></div>
+      <div class="proof-item"><strong>From farm to kitchen</strong><span>Agro-food, lab, and kitchen workflows</span></div>
+      <div class="proof-item"><strong>Made for more people</strong><span>English, Hindi, and Odia language goals</span></div>
+    </div>
+    <section id="platform" aria-labelledby="platform-title">
+      <div class="section-heading"><span class="section-kicker">The platform</span><h2 id="platform-title">Many moving parts. One clearer picture.</h2><p>AgriVenture-OS brings the day-to-day building blocks of an agro-food venture into one thoughtfully connected workspace.</p></div>
+      <div class="cards">
+        <article class="card"><span class="card-icon" aria-hidden="true">🐟</span><h3>Biofloc &amp; hydroponics</h3><p>Support for lab and growing operations, helping teams keep important work and records organized.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">🍲</span><h3>Cloud-kitchen operations</h3><p>Bring food preparation and kitchen workflows into the same operational picture as the rest of the venture.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">📊</span><h3>Break-even finance</h3><p>Make costs, pricing, and break-even thinking easier to understand and act on.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">📶</span><h3>Offline-first by design</h3><p>Keep essential work moving in low-connectivity settings, with a design that accounts for syncing later.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">✓</span><h3>Compliance support</h3><p>FSSAI-focused workflows help teams approach food-safety records and operational responsibilities.</p></article>
+        <article class="card"><span class="card-icon" aria-hidden="true">📚</span><h3>Learning connections</h3><p>IGNOU curriculum mapping connects practical venture work with relevant learning pathways.</p></article>
+      </div>
+    </section>
+    <section id="languages" class="band" aria-labelledby="language-title">
+      <div><span class="section-kicker">Designed to be inclusive</span><h2 id="language-title">Work in the language that feels like yours.</h2><p>AgriVenture-OS is planned as a trilingual experience, with English, Hindi, and Odia at its heart.</p></div>
+      <div class="language-list" aria-label="Planned languages"><div class="language">EN <span>English</span></div><div class="language">हि <span>हिन्दी · Hindi</span></div><div class="language">ଓ <span>ଓଡ଼ିଆ · Odia</span></div></div>
+    </section>
+    <section class="cta" aria-labelledby="cta-title">
+      <span class="eyebrow">Open project</span><h2 id="cta-title">Let’s build a more connected food future.</h2>
+      <p>Explore the repository, follow progress, and help shape tools for agro-food ventures and the people behind them.</p>
+      <a class="button button-primary" href="https://github.com/bhuyanamitnishanka-debug/AgriVenture-OS">Visit AgriVenture-OS on GitHub ↗</a>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year">2026</span> AgriVenture-OS</span><span>Built for growers, makers, and food entrepreneurs · <a href="https://github.com/bhuyanamitnishanka-debug/AgriVenture-OS">GitHub repository</a></span></footer>
+</body>
+</html>
